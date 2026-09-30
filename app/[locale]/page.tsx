@@ -68,6 +68,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     getTranslations("Trust"),
     getTranslations("SellerCta"),
   ]);
+  const common = await getTranslations("Common");
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -214,7 +215,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 return (
                   <ListingCard
                     key={listing.id}
-                    href="#"
                     image={listing.image}
                     imageAlt={listing.imageAlt}
                     title={listing.title}
@@ -227,6 +227,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                         : listingsT("priceOnRequest")
                     }
                     favoriteLabel={listingsT("favorite")}
+                    comingSoonLabel={common("comingSoon")}
                   />
                 );
               })}

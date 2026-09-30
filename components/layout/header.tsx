@@ -3,12 +3,14 @@ import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/layout/logo";
 import { buttonVariants } from "@/components/ui/button";
+import { ComingSoon } from "@/components/ui/coming-soon";
 import { Link } from "@/i18n/navigation";
 
 export async function Header() {
-  const [t, utility] = await Promise.all([
+  const [t, utility, common] = await Promise.all([
     getTranslations("Header"),
     getTranslations("Utility"),
+    getTranslations("Common"),
   ]);
 
   return (
@@ -54,12 +56,12 @@ export async function Header() {
           </Link>
         </nav>
         <div className="hidden items-center gap-3 sm:flex">
-          <Link
-            href="#"
-            className={buttonVariants({ variant: "ghost", size: "sm" })}
+          <ComingSoon
+            badge={common("comingSoon")}
+            className="text-coffee min-h-11 px-3 text-sm font-semibold"
           >
             {t("login")}
-          </Link>
+          </ComingSoon>
           <Link
             href="#prodavci"
             className={buttonVariants({ variant: "primary", size: "sm" })}

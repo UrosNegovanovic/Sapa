@@ -1,5 +1,9 @@
 import { defineConfig } from "drizzle-kit";
 
+import { loadLocalEnv } from "./db/load-env";
+
+loadLocalEnv();
+
 export default defineConfig({
   schema: "./db/schema/index.ts",
   out: "./db/migrations",
