@@ -4,6 +4,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ["image/avif", "image/webp"],
+    // Temporary demo images only; see features/home/demo-content.ts.
     remotePatterns: [
       {
         protocol: "https",

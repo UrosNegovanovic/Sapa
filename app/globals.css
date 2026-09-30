@@ -5,6 +5,8 @@
   --teal-strong: #0b3836;
   --coral: #c74410;
   --coral-hover: #a9370b;
+  /* Coral dark enough for small text on butter, mint, and peach (WCAG AA). */
+  --coral-strong: #a9370b;
   --sun: #ffc83d;
   --ink: #2b2118;
   --coffee: #6b5b4d;
@@ -23,6 +25,7 @@
   --color-brand-strong: var(--teal-strong);
   --color-action: var(--coral);
   --color-action-hover: var(--coral-hover);
+  --color-action-strong: var(--coral-strong);
   --color-highlight: var(--sun);
   --color-ink: var(--ink);
   --color-coffee: var(--coffee);
@@ -72,7 +75,7 @@ select {
 }
 
 .section-padding {
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(2.5rem, 10vw - 1rem, 7rem);
 }
 
 @media (min-width: 640px) {
