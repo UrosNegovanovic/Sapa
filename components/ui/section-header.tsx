@@ -10,7 +10,7 @@ export function SectionHeader({
   action?: { href: string; label: string };
 }) {
   return (
-    <div className="mb-8 flex items-end justify-between gap-6">
+    <div className="mb-6 flex items-end justify-between gap-6 sm:mb-8">
       <div>
         <h2 className="font-heading text-ink text-3xl font-bold sm:text-4xl">
           {title}
