@@ -1,12 +1,14 @@
 import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/layout/logo";
+import { ComingSoon } from "@/components/ui/coming-soon";
 import { Link } from "@/i18n/navigation";
 
 export async function Footer() {
-  const [t, header] = await Promise.all([
+  const [t, header, common] = await Promise.all([
     getTranslations("Footer"),
     getTranslations("Header"),
+    getTranslations("Common"),
   ]);
 
   return (
@@ -59,12 +61,13 @@ export async function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                href="#"
-                className="inline-flex min-h-11 items-center hover:text-white"
+              <ComingSoon
+                badge={common("comingSoon")}
+                className="min-h-11"
+                badgeClassName="bg-white/10 text-white/80"
               >
                 {t("help")}
-              </Link>
+              </ComingSoon>
             </li>
           </ul>
         </div>
@@ -72,13 +75,19 @@ export async function Footer() {
       <div className="border-t border-white/10">
         <div className="page-shell flex flex-col gap-3 py-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>{t("copyright", { year: new Date().getFullYear() })}</p>
-          <div className="flex gap-5">
-            <Link href="#" className="hover:text-white">
+          <div className="flex flex-wrap gap-5">
+            <ComingSoon
+              badge={common("comingSoon")}
+              badgeClassName="bg-white/10 text-white/80"
+            >
               {t("terms")}
-            </Link>
-            <Link href="#" className="hover:text-white">
+            </ComingSoon>
+            <ComingSoon
+              badge={common("comingSoon")}
+              badgeClassName="bg-white/10 text-white/80"
+            >
               {t("privacy")}
-            </Link>
+            </ComingSoon>
           </div>
         </div>
       </div>

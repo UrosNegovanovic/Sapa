@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 
 export type ListingCardProps = {
-  href: string;
+  href?: string;
   image: string;
   imageAlt: string;
   title: string;
@@ -15,6 +15,7 @@ export type ListingCardProps = {
   location: string;
   priceLabel: string;
   favoriteLabel: string;
+  comingSoonLabel: string;
 };
 
 export function ListingCard(props: ListingCardProps) {
@@ -31,28 +32,40 @@ export function ListingCard(props: ListingCardProps) {
         <Badge className="absolute top-3 right-3 bg-white/95">
           {props.priceLabel}
         </Badge>
-        <button
-          type="button"
-          aria-label={props.favoriteLabel}
-          className="text-brand focus-visible:ring-highlight absolute top-3 left-3 inline-flex size-11 items-center justify-center rounded-full bg-white/95 shadow-sm outline-none focus-visible:ring-3"
-        >
-          <Heart aria-hidden="true" className="size-5" />
-        </button>
+        <span className="text-coffee absolute top-3 left-3 inline-flex min-h-9 items-center gap-1.5 rounded-full bg-white/95 px-3 text-xs font-bold shadow-sm">
+          <Heart aria-hidden="true" className="text-brand size-4" />
+          <span className="sr-only">{props.favoriteLabel}:</span>
+          {props.comingSoonLabel}
+        </span>
       </div>
-      <Link
-        href={props.href}
-        className="focus-visible:ring-highlight block p-5 outline-none focus-visible:ring-3 focus-visible:ring-inset"
-      >
-        <h3 className="font-heading text-ink text-xl font-bold">
-          {props.title}
-        </h3>
-        <p className="text-action mt-1 text-sm font-semibold">{props.breed}</p>
-        <p className="text-coffee mt-4 text-sm">{props.meta}</p>
-        <p className="text-coffee mt-2 flex items-center gap-1.5 text-sm">
-          <MapPin aria-hidden="true" className="size-4" />
-          {props.location}
-        </p>
-      </Link>
+      {props.href ? (
+        <Link
+          href={props.href}
+          className="focus-visible:ring-highlight block p-5 outline-none focus-visible:ring-3 focus-visible:ring-inset"
+        >
+          <ListingDetails {...props} />
+        </Link>
+      ) : (
+        <div className="p-5">
+          <ListingDetails {...props} />
+        </div>
+      )}
     </Card>
+  );
+}
+
+function ListingDetails(
+  props: Pick<ListingCardProps, "title" | "breed" | "meta" | "location">,
+) {
+  return (
+    <>
+      <h3 className="font-heading text-ink text-xl font-bold">{props.title}</h3>
+      <p className="text-action mt-1 text-sm font-semibold">{props.breed}</p>
+      <p className="text-coffee mt-4 text-sm">{props.meta}</p>
+      <p className="text-coffee mt-2 flex items-center gap-1.5 text-sm">
+        <MapPin aria-hidden="true" className="size-4" />
+        {props.location}
+      </p>
+    </>
   );
 }

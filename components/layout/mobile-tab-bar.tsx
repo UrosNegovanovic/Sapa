@@ -3,13 +3,21 @@ import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
 
+const itemClassName =
+  "flex min-h-18 flex-col items-center justify-center gap-1 text-[0.7rem] font-semibold";
+
 export async function MobileTabBar() {
-  const t = await getTranslations("MobileNav");
-  const items = [
+  const [t, common] = await Promise.all([
+    getTranslations("MobileNav"),
+    getTranslations("Common"),
+  ]);
+  const links = [
     { href: "/", label: t("home"), icon: Home },
     { href: "/pretraga", label: t("search"), icon: Search },
-    { href: "#", label: t("favorites"), icon: Heart },
-    { href: "#", label: t("profile"), icon: UserRound },
+  ] as const;
+  const comingSoon = [
+    { label: t("favorites"), icon: Heart },
+    { label: t("profile"), icon: UserRound },
   ] as const;
 
   return (
@@ -18,15 +26,29 @@ export async function MobileTabBar() {
       className="border-border fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 px-3 backdrop-blur md:hidden"
     >
       <ul className="grid grid-cols-4">
-        {items.map((item) => (
+        {links.map((item) => (
           <li key={item.label}>
             <Link
               href={item.href}
-              className="text-coffee hover:text-brand flex min-h-18 flex-col items-center justify-center gap-1 text-[0.7rem] font-semibold"
+              className={`${itemClassName} text-coffee hover:text-brand`}
             >
               <item.icon aria-hidden="true" className="size-5" />
               {item.label}
             </Link>
+          </li>
+        ))}
+        {comingSoon.map((item) => (
+          <li key={item.label}>
+            <span className={`${itemClassName} text-coffee cursor-default`}>
+              <item.icon aria-hidden="true" className="size-5" />
+              <span>
+                {item.label}
+                <span className="sr-only">: </span>
+              </span>
+              <span className="bg-cream rounded-full px-1.5 text-[0.6rem] font-bold uppercase">
+                {common("comingSoon")}
+              </span>
+            </span>
           </li>
         ))}
       </ul>
