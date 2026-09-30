@@ -2,8 +2,58 @@
 
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing Next.js code and heed deprecation notices.
 
 <!-- END:nextjs-agent-rules -->
+
+# Šapa engineering guide
+
+Šapa is a localized marketplace for pets, adoption, grooming, and boarding in Serbia and the Balkans.
+
+## Commands
+
+- `pnpm dev` — local Next.js server
+- `pnpm build` — production build
+- `pnpm lint`, `pnpm typecheck`, `pnpm test` — required checks
+- `pnpm test:e2e` — Playwright smoke tests
+- `docker compose up -d db` — local PostgreSQL
+- `pnpm db:generate`, `pnpm db:migrate`, `pnpm db:seed` — database workflow
+
+## Architecture
+
+- App Router and Server Components by default. Add `use client` only at an interactive leaf.
+- Features own domain code in `features/`; reusable primitives live in `components/ui/`.
+- Database access stays in `db/` repositories. UI must not import the database client directly.
+- External images and search are accessed through interfaces in `lib/images/` and `lib/search/`.
+- Validate all untrusted input with shared Zod schemas on the server.
+- Do not add dependencies without a concrete maintenance or security benefit.
+
+## Design and accessibility
+
+- Use semantic tokens from `app/globals.css`; never hardcode brand hex values in components.
+- Fraunces is for headings; Figtree is for body and UI. Keep `latin-ext` enabled.
+- Use one coral primary action per screen. Pills are fully rounded; cards use the large radius.
+- Interactive targets are at least 44px, keyboard accessible, visibly focused, and properly labelled.
+- Use Lucide icons; never use emoji as interface icons.
+- Use `next/image` through the image-source abstraction for listing and provider media.
+
+## Internationalization
+
+- No user-facing string may be hardcoded in a component. Add it to `i18n/messages/sr-Latn.json`.
+- Default locale is `sr-Latn`. Routing must keep future `sr-Cyrl`, `bs`, `hr`, `mk`, `sl`, and `en` additions data-only.
+- Taxonomy names are database translations, not message-file constants.
+
+## Adding a species or breed
+
+1. Insert the base row in `species` or `breeds` with a stable slug and sort order.
+2. Add one row per locale to the corresponding translations table.
+3. Add normalized synonyms to `breed_aliases` when useful for search.
+4. Run the seed and search-schema tests; no code enum or component edit is required.
+
+## Definition of done
+
+- Acceptance behavior is covered by unit/integration tests and one critical-path E2E where appropriate.
+- `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `pnpm build` pass.
+- Responsive layout is verified at 390px and 1440px with no console errors.
+- UI copy is localized, inputs are validated, secrets are absent, migrations are committed, and docs are current.
+- Use small conventional commits and report anything skipped or failing.
