@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_DB: sapa
+          POSTGRES_USER: sapa
+          POSTGRES_PASSWORD: sapa
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U sapa -d sapa"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://sapa:sapa@localhost:5432/sapa
+      TEST_DATABASE_URL: postgresql://sapa:sapa@localhost:5432/sapa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: Migrate and seed twice on an empty database
+        run: |
+          pnpm db:migrate
+          pnpm db:seed
+          pnpm db:seed
+      - run: pnpm build
