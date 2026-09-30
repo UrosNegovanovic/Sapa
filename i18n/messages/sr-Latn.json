@@ -1,0 +1,143 @@
+{
+  "Metadata": {
+    "title": "Šapa — ljubimci i usluge za njih",
+    "description": "Specijalizovano mesto za odgovornu kupovinu, prodaju i udomljavanje životinja, salone za negu i pouzdan smeštaj.",
+    "searchTitle": "Pretraga"
+  },
+  "Utility": {
+    "message": "Odgovorno do novog člana porodice",
+    "locale": "Srpski (latinica)"
+  },
+  "Header": {
+    "brand": "Šapa",
+    "marketplace": "Pijaca",
+    "grooming": "Saloni",
+    "boarding": "Smeštaj",
+    "advice": "Saveti",
+    "login": "Prijava",
+    "addListing": "Dodaj oglas",
+    "homeLabel": "Šapa početna",
+    "menuLabel": "Otvori meni"
+  },
+  "Common": {
+    "loading": "Učitavanje sadržaja"
+  },
+  "Hero": {
+    "eyebrow": "Mesto za ljubitelje životinja na Balkanu",
+    "title": "Pronađi svog novog <highlight>najboljeg prijatelja</highlight>",
+    "description": "Istražite ljubimce koji traže dom, pronađite salon za negu ili pouzdan smeštaj — sve na jednom mestu.",
+    "imageAlt": "Pas u toploj, razigranoj studijskoj sceni"
+  },
+  "Search": {
+    "tabsLabel": "Izaberite vrstu pretrage",
+    "pets": "Ljubimci",
+    "grooming": "Saloni za negu",
+    "boarding": "Smeštaj i čuvanje",
+    "speciesLabel": "Vrsta",
+    "breedLabel": "Rasa",
+    "cityLabel": "Grad",
+    "speciesPlaceholder": "Sve vrste",
+    "breedPlaceholder": "Sve rase",
+    "cityPlaceholder": "Svi gradovi",
+    "servicePlaceholder": "Vrsta usluge",
+    "submit": "Pretraži",
+    "popular": "Popularne pretrage",
+    "popularDogs": "Psi za udomljavanje",
+    "popularCats": "Mačke",
+    "popularGrooming": "Saloni u Beogradu",
+    "popularBoarding": "Smeštaj u Novom Sadu"
+  },
+  "Categories": {
+    "title": "Šta tražite?",
+    "description": "Istražite ponudu po vrstama životinja"
+  },
+  "Listings": {
+    "title": "Najnoviji oglasi",
+    "description": "Novi, jasno predstavljeni oglasi iz zajednice",
+    "viewAll": "Vidi sve oglase",
+    "all": "Svi",
+    "sale": "Prodaja",
+    "adoption": "Udomljavanje",
+    "wanted": "Potražnja",
+    "stud": "Parenje",
+    "favorite": "Dodaj u omiljene",
+    "priceOnRequest": "Cena na upit",
+    "adoptionPrice": "Udomljavanje",
+    "ageMonths": "{count, plural, one {# mesec} few {# meseca} other {# meseci}}",
+    "male": "muški pol",
+    "female": "ženski pol",
+    "unknown": "pol nije naveden",
+    "emptyTitle": "Trenutno nema aktivnih oglasa",
+    "emptyDescription": "Promenite filter ili svratite ponovo uskoro."
+  },
+  "Services": {
+    "eyebrow": "Više od pijace",
+    "title": "Briga koja prati svaki korak",
+    "description": "Pronađite proverljive profile usluga za negu i čuvanje ljubimaca.",
+    "groomingTitle": "Saloni za negu",
+    "groomingDescription": "Istražite salone i njihove jasno navedene usluge.",
+    "groomingAction": "Istraži salone",
+    "boardingTitle": "Smeštaj i čuvanje",
+    "boardingDescription": "Pronađite hotele i privatne čuvare prema željenom periodu.",
+    "boardingAction": "Pronađi smeštaj"
+  },
+  "HowItWorks": {
+    "title": "Kako funkcioniše",
+    "description": "Jednostavan put od pretrage do sigurnijeg dogovora.",
+    "stepOneTitle": "Pretražite detaljno",
+    "stepOneDescription": "Filtrirajte po vrsti, rasi, gradu i važnim zdravstvenim podacima.",
+    "stepTwoTitle": "Proverite profil",
+    "stepTwoDescription": "Pregledajte podatke o oglašivaču, dokumentima i istoriji interakcija.",
+    "stepThreeTitle": "Dogovorite sledeći korak",
+    "stepThreeDescription": "Razgovarajte kroz platformu i prijavite sve što deluje sumnjivo."
+  },
+  "Trust": {
+    "eyebrow": "Poverenje pre svega",
+    "title": "Više pravih podataka, manje neizvesnosti",
+    "description": "Strukturirani zdravstveni podaci, status verifikacije i prijava zloupotrebe pomažu zajednici da donosi odgovornije odluke.",
+    "health": "Podaci o zdravlju i vakcinaciji",
+    "verification": "Jasan status verifikacije",
+    "reporting": "Brza prijava prevare ili zloupotrebe"
+  },
+  "SellerCta": {
+    "eyebrow": "Za odgovorne oglašivače",
+    "title": "Predstavite životinju detaljno i jasno",
+    "description": "Pripremite fotografije, zdravstvene podatke i informacije o poreklu. Objavljivanje oglasa biće dostupno u narednoj fazi.",
+    "action": "Saznaj kako će raditi"
+  },
+  "Footer": {
+    "description": "Specijalizovano mesto za ljubimce i usluge za njih na tržištu Srbije i Balkana.",
+    "platform": "Platforma",
+    "support": "Podrška",
+    "marketplace": "Pijaca",
+    "grooming": "Saloni",
+    "boarding": "Smeštaj",
+    "safety": "Bezbednost",
+    "help": "Centar za pomoć",
+    "terms": "Uslovi korišćenja",
+    "privacy": "Politika privatnosti",
+    "copyright": "© {year} Šapa. Sva prava zadržana."
+  },
+  "MobileNav": {
+    "home": "Početna",
+    "search": "Pretraga",
+    "favorites": "Omiljeno",
+    "profile": "Profil"
+  },
+  "SearchPage": {
+    "eyebrow": "Pretraga",
+    "title": "Rezultati stižu u sledećoj fazi",
+    "description": "Ruta i parametri su spremni. Kompletni filteri i rezultati biće implementirani kao zasebna faza.",
+    "query": "Vaša pretraga",
+    "species": "Vrsta: {value}",
+    "breed": "Rasa: {value}",
+    "city": "Grad: {value}",
+    "notSelected": "nije izabrano",
+    "back": "Nazad na početnu"
+  },
+  "Error": {
+    "title": "Nešto nije u redu",
+    "description": "Pokušajte ponovo. Ako se problem ponavlja, vratite se na početnu stranicu.",
+    "retry": "Pokušaj ponovo"
+  }
+}

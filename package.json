@@ -1,0 +1,73 @@
+{
+  "name": "sapa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx db/seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "latest",
+    "@radix-ui/react-tabs": "latest",
+    "@tanstack/react-query": "latest",
+    "better-auth": "latest",
+    "clsx": "latest",
+    "drizzle-orm": "latest",
+    "lucide-react": "latest",
+    "next": "16.3.6",
+    "next-intl": "latest",
+    "postgres": "latest",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-hook-form": "latest",
+    "tailwind-merge": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "drizzle-kit": "latest",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "husky": "latest",
+    "jsdom": "latest",
+    "lint-staged": "latest",
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "latest",
+    "tailwindcss": "^4.3.3",
+    "tsx": "latest",
+    "typescript": "^5.9.3",
+    "vitest": "latest"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json,yml,yaml}": "prettier --write"
+  }
+}
