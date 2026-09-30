@@ -1,6 +1,7 @@
 import { and, eq } from "drizzle-orm";
 
 import { closeDatabase, getDatabase } from "@/db/client";
+import { loadLocalEnv } from "@/db/load-env";
 import {
   breedAliases,
   breeds,
@@ -121,6 +122,7 @@ const serbianCities = [
 ] as const;
 
 async function seed() {
+  loadLocalEnv();
   const db = getDatabase();
 
   await db
